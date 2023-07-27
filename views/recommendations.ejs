@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head.ejs') %>
+  <link rel="stylesheet" href="../font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+  <link href="../css/recommendations/navbar.css" rel="stylesheet">
+  <link href="../css/recommendations/icons.css" rel="stylesheet">
     <body class="position-relative" data-bs-spy="scroll">
+        <%- include('./partials/navbar.ejs') %>
+      <div data-spy="scroll" data-target="#navbar" data-offset="0">
         <%- include('./partials/recomendations.ejs') %>
         <%- include('./partials/scripts.ejs') %>
     </body>

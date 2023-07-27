@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head.ejs') %>
+  <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+  <link href="../css/portfolio/navbar.css" rel="stylesheet">
+  <link href="../css/portfolio/services.css" rel="stylesheet">
     <body class="position-relative" data-bs-spy="scroll">
+        <%- include('./partials/navbar.ejs') %>
+      <div data-spy="scroll" data-target="#navbar" data-offset="0">
         <%- include('./partials/portifolio.ejs') %>
         <%- include('./partials/scripts.ejs') %>
     </body>

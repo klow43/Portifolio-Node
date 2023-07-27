@@ -30,7 +30,7 @@ app.use(express.static(__dirname + '/node_modules/bootstrap-icons'));
 
 app.use('/', indexRouter);
 app.use('/home', homeRouter);
-app.use('/about', servicesRouter);
+app.use('/about', aboutRouter);
 app.use('/services', servicesRouter);
 app.use('/recommendations', recommendationsRouter);
 app.use('/portfolio', portfolioRouter);

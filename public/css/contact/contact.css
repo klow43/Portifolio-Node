@@ -1,4 +1,8 @@
-.about a {
+#contact .r-icon {
+    font-size: 50px;
+    text-align: center;
+}
+#contact .r-icon a {
     color: #000;
     display: inline-block;
     height: 62px;
@@ -9,7 +13,6 @@
     line-height: 60px;
     text-align: center;
 }
-  
-.about a:hover {
-    color: #ee8682;
+#contact .r-icon a:hover {
+    color: #ee8683;
 }
