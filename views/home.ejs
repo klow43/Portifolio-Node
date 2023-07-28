@@ -9,6 +9,17 @@
     <body class="position-relative" data-bs-spy="scroll">
       <%- include('./partials/navbar.ejs') %>
       <div data-spy="scroll" data-target="#navbar" data-offset="0">
+      <script>
+          var typed = new Typed(".aboutMe", {
+            strings: <%- JSON.stringify(array) %> ,
+            smartBackspace: true,
+            typeSpeed: 100,
+            backSpeed: 100,
+            loop: true,
+            loopCount: Infinity,
+            startDelay: 1000
+        });
+      </script> 
         <%- include('./partials/home.ejs') %>
       </div>
       <%- include('./partials/scripts.ejs') %>
