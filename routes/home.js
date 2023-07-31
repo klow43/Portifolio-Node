@@ -19,4 +19,16 @@ router.post('/', jsonParser, function(req,res,next){
   res.end();
 })
 
+router.delete('/',jsonParser,function(req,res,next){
+  let rawdata = fs.readFileSync(path.resolve(__dirname, "../data/introductionArray.json"));
+  let array = JSON.parse(rawdata);
+  //if (array contains match), proceed to find index, delete array[index,1], change json file to modified array. If no match, skip.
+  if(array.includes(req.body.deleteText)){
+    const remove = array.indexOf(req.body.deleteText)
+    array.splice(remove,1);
+    fs.writeFileSync(path.resolve(__dirname,"../data/introductionArray.json"), JSON.stringify(array))
+  }
+  res.end()
+})
+
 module.exports = router;
