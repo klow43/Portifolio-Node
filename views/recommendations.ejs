@@ -7,7 +7,7 @@
     <body class="position-relative" data-bs-spy="scroll">
         <%- include('./partials/navbar.ejs') %>
       <div data-spy="scroll" data-target="#navbar" data-offset="0">
-        <%- include('./partials/recomendations.ejs') %>
+        <%- include('./partials/recommendations.ejs', {data: data}) %>
         <%- include('./partials/scripts.ejs') %>
     </body>
 </html>

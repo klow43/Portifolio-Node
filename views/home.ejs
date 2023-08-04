@@ -9,6 +9,8 @@
     <body class="position-relative" data-bs-spy="scroll">
       <%- include('./partials/navbar.ejs') %>
       <div data-spy="scroll" data-target="#navbar" data-offset="0">
+        <%- include('./partials/home.ejs') %>
+      </div>  
       <script>
           var typed = new Typed(".aboutMe", {
             strings: <%- JSON.stringify(array) %> ,
@@ -20,8 +22,6 @@
             startDelay: 1000
         });
       </script> 
-        <%- include('./partials/home.ejs') %>
-      </div>
       <%- include('./partials/scripts.ejs') %>
     </body>
 </html>

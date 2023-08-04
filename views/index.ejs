@@ -7,7 +7,7 @@
         <%- include('./partials/home.ejs') %>
         <%- include('./partials/about.ejs') %>
         <%- include('./partials/services.ejs') %>
-        <%- include('./partials/recomendations.ejs') %>
+        <%- include('./partials/recommendations.ejs') %>
         <%- include('./partials/portifolio.ejs') %>
         <%- include('./partials/contact.ejs') %>
       </div>
@@ -22,6 +22,7 @@
               loopCount: Infinity,
               startDelay: 1000
             });
+            var recommendations = <%- JSON.stringify(data) %>
           </script>
     </body>
 </html>
