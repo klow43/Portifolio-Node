@@ -14,7 +14,7 @@
         <%- include('./partials/scripts.ejs') %>
           <script>
             var typed = new Typed(".aboutMe", {
-              strings: <%- JSON.stringify(array) %>,
+              strings: <%- JSON.stringify(introductions) %>,
               smartBackspace: true,
               typeSpeed: 100,
               backSpeed: 100,
@@ -22,7 +22,8 @@
               loopCount: Infinity,
               startDelay: 1000
             });
-            var recommendations = <%- JSON.stringify(data) %>
+            var data = <%- JSON.stringify(data) %>
+            var cakes = <%- JSON.stringify(cakes) %>
           </script>
     </body>
 </html>

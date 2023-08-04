@@ -5,9 +5,10 @@ const path = require("path");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  let arr = fs.readFileSync(path.resolve(__dirname, "../data/introductionArray.json"));
-  let data = fs.readFileSync(path.resolve(__dirname, "../data/recommendations.json"))
-  res.render('index', { title: 'Express', array: JSON.parse(arr), data: JSON.parse(data)});
+  let introduction = fs.readFileSync(path.resolve(__dirname, "../data/introductionArray.json"));
+  let recommendations = fs.readFileSync(path.resolve(__dirname, "../data/recommendations.json"));
+  let cakes = fs.readFileSync(path.resolve(__dirname, "../data/portfolio.json"));
+  res.render('index', { title: 'Express', introductions: JSON.parse(introduction), data: JSON.parse(recommendations), cakes: JSON.parse(cakes)});
 });
 
 module.exports = router;
