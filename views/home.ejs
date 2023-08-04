@@ -4,13 +4,15 @@
         <title>Portfolio</title>
         <link rel="stylesheet" href="../font/bootstrap-icons.css">
         <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+        <link href="../css/navbar.css" rel="stylesheet">
         <link href="../css/home/header.css" rel="stylesheet">
       </head>
     <body class="position-relative" data-bs-spy="scroll">
       <%- include('./partials/navbar.ejs') %>
       <div data-spy="scroll" data-target="#navbar" data-offset="0">
         <%- include('./partials/home.ejs') %>
-      </div>  
+      </div> 
+      <%- include('./partials/scripts.ejs') %>
       <script>
           var typed = new Typed(".aboutMe", {
             strings: <%- JSON.stringify(array) %> ,
@@ -21,7 +23,6 @@
             loopCount: Infinity,
             startDelay: 1000
         });
-      </script> 
-      <%- include('./partials/scripts.ejs') %>
+      </script>
     </body>
 </html>
