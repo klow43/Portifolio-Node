@@ -3,6 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const passport = require('passport');
+const session = require('express-session');
+const JsonStore = require('express-session-json')(session);
 
 var indexRouter = require('./routes/index');
 var homeRouter = require('./routes/home');
@@ -29,6 +32,14 @@ app.use(express.static(__dirname + '/node_modules/jquery/dist'));
 app.use(express.static(__dirname + '/node_modules/typed.js/lib'));
 app.use(express.static(__dirname + '/node_modules/bootstrap-icons'));
 
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false,
+  store: new JsonStore()
+}));
+
+app.use(passport.authenticate('session'));
 app.use('/', indexRouter);
 app.use('/home', homeRouter);
 app.use('/about', aboutRouter);
@@ -53,5 +64,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;
