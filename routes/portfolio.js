@@ -5,6 +5,8 @@ const path = require('path');
 const request = require('request');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
+const ensureLogIn = require('connect-ensure-login').ensureLoggedIn;
+const ensureLoggedIn = ensureLogIn();
 
 //download image to server
 const download = function(url, filename, callback){
@@ -33,7 +35,7 @@ router.post('/',jsonParser, function(req, res, next){
   res.end();
 });
 
-router.delete('/', jsonParser, function(req, res, next){
+router.delete('/', jsonParser, ensureLoggedIn, function(req, res, next){
   let rawdata = fs.readFileSync(path.resolve(__dirname, "../data/portfolio.json"));
   let portfoliosArray = JSON.parse(rawdata);
   if(validationDELETE(req,res,portfoliosArray) == true){
@@ -47,7 +49,7 @@ router.delete('/', jsonParser, function(req, res, next){
 })
 
 //validation for POST request
-function validationPOST(req,res){
+function validationPOST(req,res,portfoliosArray){
   const expectedAttributes = ["url", "name", "alt", "category", "header", "description"]
     Object.keys(req.body).forEach(param => {
       if(!(expectedAttributes.includes(param))){

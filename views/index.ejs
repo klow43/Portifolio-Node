@@ -4,7 +4,7 @@
     <body class="position-relative" data-bs-spy="scroll">
       <%- include('./partials/navbar.ejs') %>
       <div data-spy="scroll" data-target="#navbar" data-offset="0">
-        <%- include('./partials/home.ejs') %>
+        <%- include('./partials/home.ejs') %> 
         <%- include('./partials/about.ejs') %>
         <%- include('./partials/services.ejs') %>
         <%- include('./partials/recommendations.ejs') %>
@@ -12,18 +12,18 @@
         <%- include('./partials/contact.ejs') %>
       </div>
         <%- include('./partials/scripts.ejs') %>
+        <script src="/js/portfolioRequest.js"></script>
           <script>
-            var typed = new Typed(".aboutMe", {
-              strings: <%- JSON.stringify(introductions) %>,
-              smartBackspace: true,
-              typeSpeed: 100,
-              backSpeed: 100,
-              loop: true,
-              loopCount: Infinity,
-              startDelay: 1000
-            });
-            var data = <%- JSON.stringify(data) %>
-            var cakes = <%- JSON.stringify(cakes) %>
-          </script>
+        var typed = new Typed(".aboutMe", {
+          strings: <%- JSON.stringify(introductions) %>,
+          smartBackspace: true,
+          typeSpeed: 100,
+          backSpeed: 100,
+          loop: true,
+          loopCount: Infinity,
+          startDelay: 1000
+        });
+        var data = <%- JSON.stringify(data) %>
+        </script>
     </body>
 </html>
