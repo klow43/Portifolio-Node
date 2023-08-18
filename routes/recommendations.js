@@ -4,6 +4,8 @@ const fs = require("fs");
 const path = require("path");
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
+const ensureLogIn = require('connect-ensure-login').ensureLoggedIn;
+const ensureLoggedIn = ensureLogIn();
 
 /* GET recommendations page. */
 router.get('/', function(req, res, next) {
@@ -23,7 +25,7 @@ if(validationPOST(req,res) == true){
   res.end() 
 });
 
-router.delete('/', jsonParser, function(req,res,next){
+router.delete('/', jsonParser, ensureLoggedIn, function(req,res,next){
   let rawdata = fs.readFileSync(path.resolve(__dirname, "../data/recommendations.json"));
   let recommendationsArray = JSON.parse(rawdata);
   const newArray = recommendationsArray.filter(x => x.name !== req.body.name)
